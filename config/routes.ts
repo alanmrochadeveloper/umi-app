@@ -22,5 +22,16 @@ export default [
         component: '@/pages/Product'
       },
     ]
+  },
+  {
+    path: '/login',
+    component: '@/pages/Login',
+    laytout: false,
+  },
+  {
+    path: '/',
+    name: 'home',
+    icon: 'home',
+    component: '@/pages/Home',
   }
 ];
