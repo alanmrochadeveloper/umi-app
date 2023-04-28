@@ -1,5 +1,26 @@
-const routes = [
-  { path: '/', component: '@/pages/index' },
-];
+export default [
+  {
+    path: '/',
+    redirect: '/app/login'
+  },
+  {
+    path: '/app',
+    component: '@/layouts/Header',
+    routes: [
+      {
+        path: '/app/home',
+        component: '@/pages/Home'
+      },
 
-export default routes;
+      {
+        exact: false,
+        path: '/app/login',
+        component: '@/pages/Login'
+      },
+      {
+        path: '/app/product/:id',
+        component: '@/pages/Product'
+      },
+    ]
+  }
+];
