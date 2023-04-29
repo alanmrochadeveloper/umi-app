@@ -45,5 +45,11 @@ export default [
     name: 'opportunities',
     icon: 'AccountBook',
     component: '@/pages/Opportunities',
+  },
+  {
+    path: '/reports',
+    name: 'reports',
+    icon: 'BarChartOutlined',
+    component: '@/pages/Reports',
   }
 ];
