@@ -4,4 +4,7 @@ export default {
   'home.recents': 'Oportunidades Recentes',
   'greetings.hello': 'Olá',
   'greetings.welcome': 'Bem vindo',
+  'table.opportunity.title': 'Oportunidades',
+  'table.customer.title': 'Clientes',
+  'table.new': 'Nova'
 }
