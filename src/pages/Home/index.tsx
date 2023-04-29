@@ -3,6 +3,7 @@ import { PageContainer } from '@ant-design/pro-layout';
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
 import ProTable from '@ant-design/pro-table';
+import { FormattedMessage } from 'umi';
 
 
 export default function Page() {
@@ -21,16 +22,16 @@ export default function Page() {
             />
           </div>
           <div className={styles.content}>
-            <div className={styles.contentTitle}>
-              Hello John Doe, welcome.
-            </div>
+            <FormattedMessage id="greetings.hello" />
+            {' '}John Doe,{' '}
+            <FormattedMessage id="greetings.welcome" />
             <div> Inside Sales | Umi Group</div>
           </div>
         </div>
       }>
       <div style={{ width: '100%' }}>
         <ProTable<any>
-          headerTitle="Recent opportunities"
+          headerTitle={<FormattedMessage id="home.recents" />}
           pagination={{ pageSize: 5 }}
           rowKey="id"
           search={false}
