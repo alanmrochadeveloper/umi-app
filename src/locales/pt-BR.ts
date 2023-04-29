@@ -6,5 +6,8 @@ export default {
   'greetings.welcome': 'Bem vindo',
   'table.opportunity.title': 'Oportunidades',
   'table.customer.title': 'Clientes',
-  'table.new': 'Nova'
+  'table.new': 'Nova',
+  'chart.top': 'Alta oportunidades',
+  'chart.leads': 'Leads por fonte',
+  'chart.month': 'Oportunidades Ganho/Perca por mês'
 }
