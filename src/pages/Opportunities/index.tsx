@@ -9,7 +9,7 @@ import { PageContainer } from '@ant-design/pro-layout';
 export default function Page() {
   return (
     <PageContainer>
-      <ProTable<Opportunity>
+      <ProTable<any>
         rowKey="id"
         headerTitle={<FormattedMessage id="table.opportunity.title" />}
         search={{ labelWidth: 'auto' }}
