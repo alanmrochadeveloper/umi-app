@@ -1,3 +1,4 @@
+import columns from '../Opportunities/columns';
 import styles from './index.less';
 import { PageContainer } from '@ant-design/pro-layout';
 import { UserOutlined } from '@ant-design/icons';
@@ -35,6 +36,7 @@ export default function Page() {
           pagination={{ pageSize: 5 }}
           rowKey="id"
           search={false}
+          columns={columns}
         />
       </div>
     </PageContainer>

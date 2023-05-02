@@ -3,11 +3,12 @@ import { Button } from 'antd'
 import ProTable from '@ant-design/pro-table'
 import { FormattedMessage, getLocale } from 'umi'
 import { PageContainer } from '@ant-design/pro-layout'
-
+import columns from './columns';
+import { Customer } from '@/types/customer';
 export default function Page() {
   return (
     <PageContainer>
-      <ProTable<any>
+      <ProTable<Customer>
         rowKey="id"
         headerTitle={<FormattedMessage id="table.customer.title" />}
         search={{ labelWidth: 'auto' }}
@@ -19,6 +20,7 @@ export default function Page() {
             <FormattedMessage id="table.new" />
           </Button>
         ]}
+        columns={columns}
       />
     </PageContainer>
   )

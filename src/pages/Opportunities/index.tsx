@@ -1,13 +1,15 @@
-import { PlusOutlined } from '@ant-design/icons'
-import { Button } from 'antd'
-import ProTable from '@ant-design/pro-table'
-import { FormattedMessage, getLocale } from 'umi'
-import { PageContainer } from '@ant-design/pro-layout'
+import columns from './columns';
+import { Opportunity } from '@/types/opportunity';
+import { PlusOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import ProTable from '@ant-design/pro-table';
+import { FormattedMessage, getLocale } from 'umi';
+import { PageContainer } from '@ant-design/pro-layout';
 
 export default function Page() {
   return (
     <PageContainer>
-      <ProTable<any>
+      <ProTable<Opportunity>
         rowKey="id"
         headerTitle={<FormattedMessage id="table.opportunity.title" />}
         search={{ labelWidth: 'auto' }}
@@ -17,10 +19,10 @@ export default function Page() {
         toolBarRender={() => [
           <Button key="button" icon={<PlusOutlined />} type="primary">
             <FormattedMessage id="table.new" />
-          </Button>
+          </Button>,
         ]}
+        columns={columns}
       />
     </PageContainer>
-  )
+  );
 }
-
