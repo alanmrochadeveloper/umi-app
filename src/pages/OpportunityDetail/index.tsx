@@ -8,6 +8,7 @@ import columns from '../Opportunities/columns';
 import { PlusOutlined } from '@ant-design/icons';
 import { Activity } from '@/types/opportunity';
 import styles from './index.less';
+import activityColumns from './columns';
 
 export default function Page() {
   const { id } = useParams<{ id: string }>();
@@ -18,8 +19,46 @@ export default function Page() {
           <FormattedMessage id="activity.new" />
         </Button>,
       ]}
+      header={{
+        title: <FormattedMessage id="table.opportunity.title" />,
+        breadcrumb: (
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <a onClick={() => history.push('/opportunities')}>
+                <FormattedMessage id="menu.opportunities" />
+              </a>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <FormattedMessage id="table.opportunity.title" />
+            </Breadcrumb.Item>
+          </Breadcrumb>
+        ),
+      }}
     >
       <Card bordered>
+        <Steps current={0}>
+          <Steps.Step
+            key="quality"
+            description={<Tag color="#e379f2" key={0} />}
+            title={<FormattedMessage id="step.quality" />}
+          />
+          <Steps.Step
+            key="develop"
+            description={<Tag color="#c7f279" key={1} />}
+            title={<FormattedMessage id="step.develop" />}
+          />
+          <Steps.Step
+            key="propose"
+            description={<Tag color="#8d79f2" key={2} />}
+            title={<FormattedMessage id="step.propose" />}
+          />
+          <Steps.Step
+            key="close"
+            description={<Tag color="#42c3e3" key={3} />}
+            title={<FormattedMessage id="step.close" />}
+          />
+        </Steps>
+        <br />
         <ProDescriptions<Opportunity>
           title={<FormattedMessage id="table.oppotunity.detail" />}
           columns={columns}
@@ -33,7 +72,7 @@ export default function Page() {
           toolbar={{ settings: undefined }}
           search={false}
           pagination={{ pageSize: 5 }}
-          columns={[]}
+          columns={activityColumns}
           params={{ customerId: id }}
           request={() => {}}
         />

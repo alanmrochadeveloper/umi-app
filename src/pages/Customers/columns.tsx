@@ -29,7 +29,7 @@ const columns: ProColumns<Customer>[] = [
     valueType: 'option',
     hideInSetting: true,
     hideInDescriptions: true,
-    render: (_, record, _, action) => {
+    render: (_, record, __, action) => {
       <a
         key="editable"
         onClick={() => {

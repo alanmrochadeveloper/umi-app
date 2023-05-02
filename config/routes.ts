@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    redirect: '/app/login'
+    redirect: '/app/login',
   },
   {
     path: '/app',
@@ -9,19 +9,19 @@ export default [
     routes: [
       {
         path: '/app/home',
-        component: '@/pages/Home'
+        component: '@/pages/Home',
       },
 
       {
         exact: false,
         path: '/app/login',
-        component: '@/pages/Login'
+        component: '@/pages/Login',
       },
       {
         path: '/app/product/:id',
-        component: '@/pages/Product'
+        component: '@/pages/Product',
       },
-    ]
+    ],
   },
   {
     path: '/login',
@@ -51,5 +51,9 @@ export default [
     name: 'reports',
     icon: 'BarChartOutlined',
     component: '@/pages/Reports',
-  }
+  },
+  {
+    path: '/opportunity/:id',
+    component: '@/pages/OpportunityDetail',
+  },
 ];
