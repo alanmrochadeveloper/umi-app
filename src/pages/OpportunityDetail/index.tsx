@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import { getOpportunity, listActivities } from '@/services/opportunity';
 import { Opportunity } from '@/types/opportunity';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import { PageContainer } from '@ant-design/pro-layout';
@@ -7,11 +9,21 @@ import { useParams, history, FormattedMessage } from 'umi';
 import columns from '../Opportunities/columns';
 import { PlusOutlined } from '@ant-design/icons';
 import { Activity } from '@/types/opportunity';
-import styles from './index.less';
 import activityColumns from './columns';
 
 export default function Page() {
   const { id } = useParams<{ id: string }>();
+  const [opportunity, setOpportunity] = useState<Opportunity>([]);
+  useEffect(() => {
+    const fetchOpportunity = async () => {
+      setOpportunity(
+        await getOpportunity({
+          opportunityId: id,
+        }),
+      );
+    };
+    fetchOpportunity();
+  }, []);
   return (
     <PageContainer
       extra={[
@@ -36,7 +48,7 @@ export default function Page() {
       }}
     >
       <Card bordered>
-        <Steps current={0}>
+        <Steps current={opportunity?.status}>
           <Steps.Step
             key="quality"
             description={<Tag color="#e379f2" key={0} />}
@@ -62,7 +74,7 @@ export default function Page() {
         <ProDescriptions<Opportunity>
           title={<FormattedMessage id="table.oppotunity.detail" />}
           columns={columns}
-          dataSource={[]}
+          dataSource={opportunity}
         />
       </Card>
       <Card bordered>
@@ -74,7 +86,7 @@ export default function Page() {
           pagination={{ pageSize: 5 }}
           columns={activityColumns}
           params={{ customerId: id }}
-          request={() => {}}
+          request={listActivities}
         />
       </Card>
     </PageContainer>
