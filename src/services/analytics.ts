@@ -19,7 +19,7 @@ export function getLeadsBySource() {
   );
 }
 export function getHistoryByMonth() {
-  return request<{ data: LeadsSource[]; success: boolean }>(
+  return request<{ data: HistoryByMonth[]; success: boolean }>(
     `/api/analytics/bymonth/opportunity`,
     {
       method: 'GET',
