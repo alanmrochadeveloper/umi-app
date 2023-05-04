@@ -1,4 +1,4 @@
-import { Customer } from './customer'
+import { Customer } from './customer';
 
 export interface Opportunity {
   id: number;
@@ -12,6 +12,6 @@ export interface Activity {
   id: number;
   type: number;
   schedule: Date;
-  createby: string;
+  createdBy: string;
   summary: string;
 }
